@@ -11,12 +11,21 @@ const makeBullshitRequest = async () => {
         You may need a cookie. idk.
         You can probably get that by fetching the main page and looking for a set_cookie header.
     */
-    await axios({
+    let f1 = await fetch("https://ago.mo.gov/file-a-complaint/transgender-center-concerns?sf_cntrl_id=ctl00%24MainContent%24C001");
+    let cookie = ""
+    for (var pair of f1.headers.entries()) {
+        if (pair[0] === "set-cookie") {
+            cookie = pair[1];
+            break;
+        }
+    };
+    let f = await axios({
         method: "POST",
         url: URL,
         header: {
             'Accept': 'application/json',
             'Content-Type': 'multipart/form-data',
+            'cookie': cookie
         },
         data: {
             TextFieldController_4: "shit", //firstname
@@ -30,4 +39,7 @@ const makeBullshitRequest = async () => {
             ParagraphTextFieldController: "I HAVE A COCK AND BALLS" // Complaint paragraph
         }
     })
+    console.log(f.data);
 }
+
+makeBullshitRequest();
