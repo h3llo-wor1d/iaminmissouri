@@ -7,9 +7,8 @@ const makeBullshitRequest = async () => {
         Just make a bullshit request jackass.
         All of the shit is commented.
         Download axios.
-        Have fun I guess.
-        You may need a cookie. idk.
-        You can probably get that by fetching the main page and looking for a set_cookie header.
+        Have fun.
+        Go crazy.
     */
     let f1 = await fetch("https://ago.mo.gov/file-a-complaint/transgender-center-concerns?sf_cntrl_id=ctl00%24MainContent%24C001");
     let cookie = ""
